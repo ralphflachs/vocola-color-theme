@@ -9,24 +9,37 @@
 			"include": "#comments"
 		},
 		{
+			"include": "#constants"
+		},
+		{
 			"include": "#strings"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.vocola",
-				"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.vocola",
+					"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break)\\b"
+				}
+				
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.character",
+					"match": "(<|>|=|!|\\+)"
+				}
+			]
 		},
 		"comments": {
 			"patterns": [
 				{
-				"name": "comment.line.number-sign.vocola",
-				"begin": "#",
-				"end": "\n"
-
-				}		
+					"name": "comment.line.number-sign.vocola",
+					"begin": "#",
+					"end": "\n"
+				}
 			]
 		},
 		"strings": {
