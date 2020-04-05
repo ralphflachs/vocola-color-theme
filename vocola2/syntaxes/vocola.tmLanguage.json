@@ -6,6 +6,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#comments"
+		},
+		{
 			"include": "#strings"
 		}
 	],
@@ -15,6 +18,16 @@
 				"name": "keyword.control.vocola",
 				"match": "\\b(if|while|for|return)\\b"
 			}]
+		},
+		"comments": {
+			"patterns": [
+				{
+				"name": "comment.line.number-sign.vocola",
+				"begin": "#",
+				"end": "\n"
+
+				}		
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.vocola",
