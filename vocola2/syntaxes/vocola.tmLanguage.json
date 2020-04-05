@@ -16,7 +16,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.vocola",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab)\\b"
 			}]
 		},
 		"comments": {
