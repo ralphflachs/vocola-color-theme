@@ -10,14 +10,20 @@
 		"expression": {
 			"patterns": [
 				{
-					"include": "#paren-expression"
+					"include": "#keystroke-command"
+				},
+				{
+					"include": "#alternative-words"
+				},
+				{
+					"include": "#optional-words"
 				}
 			]
 		},
 		"keyword": {
 			"patterns": [
 				{
-					"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break)\\b",
+					"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break|PgDn|PgUp)\\b",
 					"name": "keyword.control"
 				},
 				{
@@ -30,7 +36,7 @@
 				}
 			]
 		},
-		"paren-expression": {
+		"keystroke-command": {
 			"begin": "\\{",
 			"end": "\\}",
 			"beginCaptures": {
@@ -43,10 +49,64 @@
 					"name": "string.quoted.other"
 				}
 			},
-			"name": "expression.group",
+			"name": "keystroke.group",
 			"patterns": [
 				{
 					"include": "#keyword"
+				}
+			]
+		},
+		"alternative-keyword": {
+			"patterns": [
+				{
+					"match": "\\|",
+					"name": "keyword.letter"
+				}
+			]
+		},
+		"alternative-words": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"name": "alternative.group",
+			"patterns": [
+				{
+					"include": "#alternative-keyword"
+				},
+				{
+					"include": "#keystroke-command"
+				}
+			]
+		},
+		"optional-words": {
+			"begin": "\\[",
+			"end": "\\]",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"name": "optional.group",
+			"patterns": [
+				{
+					"include": "#alternative-keyword"
+				},
+				{
+					"include": "#keystroke-command"
 				}
 			]
 		}
