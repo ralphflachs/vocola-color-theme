@@ -3,40 +3,50 @@
 	"name": "vocola",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#strings"
+			"include": "#expression"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.vocola",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"comments": {
+		"expression": {
 			"patterns": [
 				{
-				"name": "comment.line.number-sign.vocola",
-				"begin": "#",
-				"end": "\n"
-
-				}		
+					"include": "#paren-expression"
+				}
 			]
 		},
-		"strings": {
-			"name": "string.quoted.double.vocola",
-			"begin": "\"",
-			"end": "\"",
+		"keyword": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.vocola",
-					"match": "\\\\."
+					"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break)\\b",
+					"name": "keyword.control"
+				},
+				{
+					"match": "[A-Z|a-z|0-9]",
+					"name": "keyword.letter"
+				},
+				{
+					"match": "\\+",
+					"name": "keyword.operator"
+				}
+			]
+		},
+		"paren-expression": {
+			"begin": "\\{",
+			"end": "\\}",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"name": "expression.group",
+			"patterns": [
+				{
+					"include": "#keyword"
 				}
 			]
 		}
