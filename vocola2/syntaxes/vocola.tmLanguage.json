@@ -78,6 +78,9 @@
 			"patterns": [
 				{
 					"include": "#alternative-keyword"
+				},
+				{
+					"include": "#keystroke-command"
 				}
 			]
 		}
