@@ -15,8 +15,20 @@
 			]
 		},
 		"keyword": {
-			"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break)\\b",			
-			"name": "keyword.letter"
+			"patterns": [
+				{
+					"match": "\\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break)\\b",
+					"name": "keyword.control"
+				},
+				{
+					"match": "[A-Z|a-z]",
+					"name": "keyword.letter"
+				},
+				{
+					"match": "\\+",
+					"name": "keyword.operator"
+				}
+			]
 		},
 		"paren-expression": {
 			"begin": "\\{",
