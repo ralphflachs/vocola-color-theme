@@ -10,7 +10,10 @@
 		"expression": {
 			"patterns": [
 				{
-					"include": "#paren-expression"
+					"include": "#keystroke-command"
+				},
+				{
+					"include": "#alternative-words"
 				}
 			]
 		},
@@ -30,7 +33,7 @@
 				}
 			]
 		},
-		"paren-expression": {
+		"keystroke-command": {
 			"begin": "\\{",
 			"end": "\\}",
 			"beginCaptures": {
@@ -43,10 +46,38 @@
 					"name": "string.quoted.other"
 				}
 			},
-			"name": "expression.group",
+			"name": "keystroke.group",
 			"patterns": [
 				{
 					"include": "#keyword"
+				}
+			]
+		},
+		"alternative-keyword": {
+			"patterns": [
+				{
+					"match": "\\|",
+					"name": "keyword.letter"
+				}
+			]
+		},
+		"alternative-words": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"name": "alternative.group",
+			"patterns": [
+				{
+					"include": "#alternative-keyword"
 				}
 			]
 		}
