@@ -21,7 +21,7 @@
 					"name": "keyword.control"
 				},
 				{
-					"match": "[A-Z|a-z]",
+					"match": "[A-Z|a-z|0-9]",
 					"name": "keyword.letter"
 				},
 				{
