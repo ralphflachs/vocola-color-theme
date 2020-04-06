@@ -17,7 +17,11 @@
 				},
 				{
 					"include": "#optional-words"
+				},
+				{
+					"include": "#comments"
 				}
+
 			]
 		},
 		"keyword": {
@@ -107,6 +111,15 @@
 				},
 				{
 					"include": "#keystroke-command"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign",
+					"begin": "#",
+					"end": "\n"
 				}
 			]
 		}
