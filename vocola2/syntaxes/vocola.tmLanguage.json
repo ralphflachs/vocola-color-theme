@@ -26,6 +26,9 @@
 				},
 				{
 					"include": "#variable-reference"
+				},
+				{
+					"include": "#builtin-functions"
 				}
 			]
 		},
@@ -147,6 +150,14 @@
 				{
 					"name": "variable.parameter",
 					"match": "[$][0-9]"
+				}
+			]
+		},
+		"builtin-functions": {
+			"patterns": [
+				{
+					"match": "\\b(ActiveControlPick|ActiveMenuPick|AppBringUp|AppSwapWith|Beep|ButtonClick|ClearDesktop|ControlPick|DdeExecute|DllCall|DdePoke|DragToPoint|Eval|EvalTemplate|GoToSleep|If|HeardWord|HTMLHelp|MenuCancel|MenuPick|PlaySound|MouseGrid|MsgBoxConfirm|RememberPoint|Repeat|RunScriptFile|SendDragonKeys|SendKeys|SendSystemKeys|SetMicrophone|ShiftKey|SetMousePosition|SetNaturalText|ShellExecute|TTSPlayString|Unimacro|Wait|WaitForWindow|WakeUp|WinHelp|When)\\b",
+					"name": "entity.name.function"
 				}
 			]
 		},
