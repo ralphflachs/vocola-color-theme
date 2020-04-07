@@ -20,8 +20,13 @@
 				},
 				{
 					"include": "#comments"
+				},
+				{
+					"include": "#defining-variables"
+				},
+				{
+					"include": "#variable-reference"
 				}
-
 			]
 		},
 		"keyword": {
@@ -57,6 +62,9 @@
 			"patterns": [
 				{
 					"include": "#keyword"
+				},
+				{
+					"include": "#variable-reference"
 				}
 			]
 		},
@@ -111,6 +119,34 @@
 				},
 				{
 					"include": "#keystroke-command"
+				}
+			]
+		},
+		"defining-variables": {
+			"begin": "\\<",
+			"end": "\\> ",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.other"
+				}
+			},
+			"name": "variable.group",
+			"patterns": [
+				{
+					"include": "#alternative-keyword"
+				}
+			]
+		},
+		"variable-reference": {
+			"patterns": [
+				{
+					"name": "variable.parameter",
+					"match": "[$][0-9]"
 				}
 			]
 		},
