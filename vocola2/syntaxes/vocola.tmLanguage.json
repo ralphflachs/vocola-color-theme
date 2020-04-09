@@ -8,7 +8,7 @@
 	],
 	"repository": {
 		"expression": {
-			"patterns": [				
+			"patterns": [
 				{
 					"include": "#keystroke-command"
 				}
@@ -30,13 +30,25 @@
 				}
 			]
 		},
+		"command": {
+			"patterns": [
+				{
+					"name": "variable.parameter",
+					"match": "[a-zA-Z]"
+				}
+			]
+		},
 		"keystroke-command": {
 			"patterns": [
 				{
 					"match": "((.)+)=",
 					"captures": {
 						"1": {
-							"name": "variable.parameter"
+							"patterns": [
+								{
+									"include": "#command"
+								}
+							]
 						}
 					}
 				}
