@@ -8,24 +8,9 @@
 	],
 	"repository": {
 		"expression": {
-			"patterns": [
+			"patterns": [				
 				{
 					"include": "#keystroke-command"
-				},
-				{
-					"include": "#alternative-words"
-				},
-				{
-					"include": "#optional-words"
-				},
-				{
-					"include": "#comments"
-				},
-				{
-					"include": "#defining-variables"
-				},
-				{
-					"include": "#variable-reference"
 				}
 			]
 		},
@@ -46,6 +31,18 @@
 			]
 		},
 		"keystroke-command": {
+			"patterns": [
+				{
+					"match": "((.)+)=",
+					"captures": {
+						"1": {
+							"name": "variable.parameter"
+						}
+					}
+				}
+			]
+		},
+		"keystroke-sequence": {
 			"begin": "\\{",
 			"end": "\\}",
 			"beginCaptures": {
@@ -95,7 +92,7 @@
 					"include": "#alternative-keyword"
 				},
 				{
-					"include": "#keystroke-command"
+					"include": "#keystroke-sequence"
 				}
 			]
 		},
@@ -118,7 +115,7 @@
 					"include": "#alternative-keyword"
 				},
 				{
-					"include": "#keystroke-command"
+					"include": "#keystroke-sequence"
 				}
 			]
 		},
