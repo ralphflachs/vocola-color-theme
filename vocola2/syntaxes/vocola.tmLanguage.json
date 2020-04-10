@@ -68,7 +68,11 @@
 			"patterns":[
 				{
 					"include": "#keystroke-sequence"
+				},
+				{
+					"include": "#variable-reference"
 				}
+
 			]
 		},
 		"left-side": {
