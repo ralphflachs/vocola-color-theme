@@ -11,6 +11,9 @@
 			"patterns": [
 				{
 					"include": "#left-side"
+				},
+				{
+					"include": "#comments"
 				}
 			]
 		},
@@ -125,11 +128,11 @@
 				}
 			]
 		},
-		"optional-command":{
-			"patterns":[
+		"optional-command": {
+			"patterns": [
 				{
-					"name":"support.type",
-					"match":"[a-zA-z]"
+					"name": "support.type",
+					"match": "[a-zA-z]"
 				}
 			]
 		},
