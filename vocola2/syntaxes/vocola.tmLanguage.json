@@ -49,6 +49,9 @@
 									"include": "#alternative-words"
 								},
 								{
+									"include": "#optional-words"
+								},
+								{
 									"include": "#command"
 								}
 							]
@@ -122,6 +125,14 @@
 				}
 			]
 		},
+		"optional-command":{
+			"patterns":[
+				{
+					"name":"support.type",
+					"match":"[a-zA-z]"
+				}
+			]
+		},
 		"optional-words": {
 			"begin": "\\[",
 			"end": "\\]",
@@ -141,7 +152,7 @@
 					"include": "#alternative-keyword"
 				},
 				{
-					"include": "#keystroke-sequence"
+					"include": "#optional-command"
 				}
 			]
 		},
