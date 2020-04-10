@@ -52,8 +52,22 @@
 									"include": "#left-side"
 								}
 							]
+						},
+						"4": {
+							"patterns": [
+								{
+									"include": "#right-side"
+								}
+							]
 						}
 					}
+				}
+			]
+		},
+		"right-side": {
+			"patterns":[
+				{
+					"include": "#keystroke-sequence"
 				}
 			]
 		},
