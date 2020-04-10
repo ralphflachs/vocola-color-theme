@@ -10,7 +10,7 @@
 		"expression": {
 			"patterns": [
 				{
-					"include": "#keystroke-command"
+					"include": "#left-side"
 				}
 			]
 		},
@@ -38,13 +38,16 @@
 				}
 			]
 		},
-		"keystroke-command": {
+		"left-side": {
 			"patterns": [
 				{
 					"match": "((.)+)=",
 					"captures": {
 						"1": {
 							"patterns": [
+								{
+									"include": "#alternative-words"
+								},
 								{
 									"include": "#command"
 								}
@@ -81,7 +84,7 @@
 			"patterns": [
 				{
 					"match": "\\|",
-					"name": "keyword.letter"
+					"name": "support.type"
 				}
 			]
 		},
@@ -105,6 +108,17 @@
 				},
 				{
 					"include": "#keystroke-sequence"
+				},
+				{
+					"include": "#alternative-command"
+				}
+			]
+		},
+		"alternative-command": {
+			"patterns": [
+				{
+					"name": "variable.language",
+					"match": "[a-zA-Z]"
 				}
 			]
 		},
