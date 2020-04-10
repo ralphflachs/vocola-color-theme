@@ -81,6 +81,9 @@
 				},
 				{
 					"include": "#command"
+				},
+				{
+					"include": "#defining-variables"
 				}
 			]
 		},
