@@ -148,6 +148,9 @@
 				},
 				{
 					"include": "#alternative-command"
+				},
+				{
+					"include": "#optional-words"
 				}
 			]
 		},
