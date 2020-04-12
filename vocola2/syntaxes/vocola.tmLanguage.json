@@ -68,14 +68,16 @@
 			]
 		},
 		"right-side": {
-			"patterns":[
+			"patterns": [
 				{
 					"include": "#keystroke-sequence"
 				},
 				{
 					"include": "#variable-reference"
+				},
+				{
+					"include": "#quotes"
 				}
-
 			]
 		},
 		"left-side": {
@@ -151,6 +153,9 @@
 				},
 				{
 					"include": "#optional-words"
+				},
+				{
+					"include": "#quotes"
 				}
 			]
 		},
@@ -212,6 +217,11 @@
 					"include": "#alternative-keyword"
 				}
 			]
+		},
+		"quotes": {
+			"begin": "\"",
+			"end": "\"",
+			"name": "string.quoted.double"
 		},
 		"variable-reference": {
 			"patterns": [
