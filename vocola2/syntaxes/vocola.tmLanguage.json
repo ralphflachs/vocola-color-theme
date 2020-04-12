@@ -44,6 +44,23 @@
 				}
 			]
 		},
+		"substitute-equation": {
+			"patterns": [
+				{
+					"begin": "((.)+)(=)",
+					"end": "/|",					
+					"beginCaptures": {
+						"0": {
+							"patterns": [
+								{
+									"include": "#command"
+								}
+							]
+						}						
+					}
+				}
+			]
+		},
 		"equation": {
 			"patterns": [
 				{
@@ -145,9 +162,9 @@
 				},
 				{
 					"include": "#keystroke-sequence"
-				},
+				},				
 				{
-					"include": "#alternative-command"
+					"include": "#substitute-equation"
 				}
 			]
 		},
