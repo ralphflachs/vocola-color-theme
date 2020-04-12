@@ -14,6 +14,9 @@
 				},
 				{
 					"include": "#equation"
+				},
+				{
+					"include": "#alternative-words"
 				}
 			]
 		},
