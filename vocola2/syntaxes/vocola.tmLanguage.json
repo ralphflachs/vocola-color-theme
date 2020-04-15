@@ -8,15 +8,15 @@
 	],
 	"repository": {
 		"expression": {
-			"patterns": [
-				{
-					"include": "#comments"
-				},
+			"patterns": [				
 				{
 					"include": "#equation"
 				},
 				{
 					"include": "#alternative-words"
+				},
+				{
+					"include": "#comments"
 				}
 			]
 		},
@@ -47,7 +47,7 @@
 		"equation": {
 			"patterns": [
 				{
-					"match": "((.)+)(=)((.)+);",
+					"match": "((.)+)(=)((.)+);\n",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -98,17 +98,7 @@
 		},
 		"keystroke-sequence": {
 			"begin": "\\{",
-			"end": "\\}",
-			"beginCaptures": {
-				"0": {
-					"name": "string.quoted.other"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "string.quoted.other"
-				}
-			},
+			"end": "\\}",			
 			"name": "keystroke.group",
 			"patterns": [
 				{
@@ -116,6 +106,9 @@
 				},
 				{
 					"include": "#variable-reference"
+				},
+				{
+					"include": "#quotes"
 				}
 			]
 		},
