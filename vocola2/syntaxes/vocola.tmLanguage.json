@@ -8,7 +8,7 @@
 	],
 	"repository": {
 		"expression": {
-			"patterns": [				
+			"patterns": [
 				{
 					"include": "#equation"
 				},
@@ -47,7 +47,7 @@
 		"equation": {
 			"patterns": [
 				{
-					"match": "((.)+)(=)((.)+);\n",
+					"match": "([^=]+)(=)((.)+);",
 					"captures": {
 						"1": {
 							"patterns": [
@@ -56,7 +56,7 @@
 								}
 							]
 						},
-						"4": {
+						"3": {
 							"patterns": [
 								{
 									"include": "#right-side"
@@ -98,7 +98,7 @@
 		},
 		"keystroke-sequence": {
 			"begin": "\\{",
-			"end": "\\}",			
+			"end": "\\}",
 			"name": "keystroke.group",
 			"patterns": [
 				{
