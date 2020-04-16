@@ -10,13 +10,13 @@
 		"expression": {
 			"patterns": [
 				{
+					"include": "#comments"
+				},
+				{
 					"include": "#equation"
 				},
 				{
 					"include": "#alternative-words"
-				},
-				{
-					"include": "#comments"
 				}
 			]
 		},
