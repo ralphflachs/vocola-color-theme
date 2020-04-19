@@ -10,10 +10,7 @@
 		"expression": {
 			"patterns": [
 				{
-					"include": "#comments"
-				},
-				{
-					"include": "#equation"
+					"include": "#keystroke-sequence"
 				},
 				{
 					"include": "#alternative-words"
@@ -120,35 +117,30 @@
 				}
 			]
 		},
+		"alternative-equation": {
+			"patterns": [
+				{
+					"match": "((.)+)(=)((.)+)",
+					"captures": {
+						"1": {
+							"name": "variable.language"
+						}
+					}
+				}
+			]
+		},
 		"alternative-words": {
-			"begin": "\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": {
-					"name": "string.quoted.other"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "string.quoted.other"
-				}
-			},
+			"begin": "<(.)+>(.)+:=(.)+\\(",
+			"end": "\\);\n",
 			"name": "alternative.group",
 			"patterns": [
 				{
-					"include": "#alternative-keyword"
-				},
-				{
-					"include": "#keystroke-sequence"
-				},
-				{
-					"include": "#alternative-command"
-				},
-				{
-					"include": "#optional-words"
-				},
-				{
-					"include": "#quotes"
+					"match": "[a-zA-z]",
+					"captures": {
+						"0": {
+							"name": "variable.language"
+						}
+					}
 				}
 			]
 		},
