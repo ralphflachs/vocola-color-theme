@@ -416,7 +416,7 @@
             <key>match</key>
             <string>([^\x{005b}])</string>
             <key>name</key>
-            <string>text.vocola2</string>
+            <string>keyword.control.vocola2</string>
           </dict>
           <dict>
             <key>include</key>
