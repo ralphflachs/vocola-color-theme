@@ -97,6 +97,35 @@
           </dict>
           <dict>
             <key>begin</key>
+            <string>(\[)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#main__3</string>
+              </dict>
+            </array>
+            <key>end</key>
+            <string>(\])</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+            </dict>
+          </dict>
+          <dict>
+            <key>begin</key>
             <string>(\#)</string>
             <key>beginCaptures</key>
             <dict>
@@ -164,7 +193,7 @@
             <array>
               <dict>
                 <key>include</key>
-                <string>#main__5</string>
+                <string>#main__6</string>
               </dict>
             </array>
             <key>end</key>
@@ -193,7 +222,7 @@
             <array>
               <dict>
                 <key>include</key>
-                <string>#main__6</string>
+                <string>#main__7</string>
               </dict>
             </array>
             <key>end</key>
@@ -258,7 +287,14 @@
       <key>main__3</key>
       <dict>
         <key>patterns</key>
-        <array></array>
+        <array>
+          <dict>
+            <key>match</key>
+            <string>(.)</string>
+            <key>name</key>
+            <string>text.vocola2</string>
+          </dict>
+        </array>
       </dict>
       <key>main__4</key>
       <dict>
@@ -266,6 +302,11 @@
         <array></array>
       </dict>
       <key>main__5</key>
+      <dict>
+        <key>patterns</key>
+        <array></array>
+      </dict>
+      <key>main__6</key>
       <dict>
         <key>patterns</key>
         <array>
@@ -285,7 +326,7 @@
           </dict>
         </array>
       </dict>
-      <key>main__6</key>
+      <key>main__7</key>
       <dict>
         <key>patterns</key>
         <array>
