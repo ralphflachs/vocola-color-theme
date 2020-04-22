@@ -161,6 +161,28 @@
             <key>include</key>
             <string>#alternative_equation</string>
           </dict>
+          <dict>
+            <key>match</key>
+            <string>(\|*)(\w)(\|*)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>string.vocola2</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+            </dict>
+          </dict>
         </array>
       </dict>
       <key>commands</key>
