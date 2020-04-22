@@ -250,9 +250,30 @@
         <array>
           <dict>
             <key>match</key>
-            <string>((\w*\s*)=(\s*\w*))</string>
-            <key>name</key>
-            <string>constant.numeric.vocola2</string>
+            <string>(\|)*(\w*\s*)(=)(\s*\w*)</string>
+            <key>captures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>text.vocola2</string>
+              </dict>
+              <key>3</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+              <key>4</key>
+              <dict>
+                <key>name</key>
+                <string>text.vocola2</string>
+              </dict>
+            </dict>
           </dict>
         </array>
       </dict>
@@ -324,17 +345,7 @@
         <array>
           <dict>
             <key>include</key>
-            <string>#numeric</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#alternative_equation</string>
-          </dict>
-          <dict>
-            <key>match</key>
-            <string>(|)</string>
-            <key>name</key>
-            <string>punctuation.vocola2</string>
           </dict>
         </array>
       </dict>
