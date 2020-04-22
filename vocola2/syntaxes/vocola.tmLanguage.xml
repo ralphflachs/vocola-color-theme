@@ -29,7 +29,7 @@
         <array>
           <dict>
             <key>match</key>
-            <string>(\b[a-z][a-z0-9]*)</string>
+            <string>(\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break|PgDn|PgUp))</string>
             <key>name</key>
             <string>keyword.vocola2</string>
           </dict>
