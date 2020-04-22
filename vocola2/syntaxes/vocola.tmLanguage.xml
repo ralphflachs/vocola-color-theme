@@ -520,7 +520,7 @@
             <key>match</key>
             <string>(.)</string>
             <key>name</key>
-            <string>punctuation.vocola2</string>
+            <string>variable.vocola2</string>
           </dict>
         </array>
       </dict>
