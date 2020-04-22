@@ -1,25 +1,25 @@
 {
     "name": "vocola2",
     "displayName": "vocola2",
-    "description": "Vocola voice command language",
+    "description": "Syntax highlighting for vocola2",
     "version": "0.0.1",
     "engines": {
-        "vscode": "^1.43.0"
+        "vscode": "^1.44.0"
     },
     "categories": [
         "Programming Languages"
     ],
     "contributes": {
         "languages": [{
-            "id": "vocola",
-            "aliases": ["vocola", "vocola"],
+            "id": "vocola2",
+            "aliases": ["vocola2", "vocola2"],
             "extensions": [".vch",".vcl"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
-            "language": "vocola",
-            "scopeName": "source.vocola",
-            "path": "./syntaxes/vocola.tmLanguage.json"
+            "language": "vocola2",
+            "scopeName": "source.vocola2",
+            "path": "./syntaxes/vocola.tmLanguage.xml"
         }]
     }
 }
