@@ -222,7 +222,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>punctuation.vocola2</string>
+                <string>entity.name.function.vocola2</string>
               </dict>
             </dict>
             <key>patterns</key>
