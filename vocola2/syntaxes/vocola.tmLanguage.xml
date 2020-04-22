@@ -57,10 +57,6 @@
             </dict>
           </dict>
           <dict>
-            <key>include</key>
-            <string>#numeric</string>
-          </dict>
-          <dict>
             <key>begin</key>
             <string>(\{)</string>
             <key>beginCaptures</key>
@@ -92,6 +88,10 @@
           <dict>
             <key>include</key>
             <string>#optional_words</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#number_sequence</string>
           </dict>
           <dict>
             <key>begin</key>
@@ -207,12 +207,6 @@
           </dict>
           <dict>
             <key>match</key>
-            <string>(//.*)</string>
-            <key>name</key>
-            <string>comment.vocola2</string>
-          </dict>
-          <dict>
-            <key>match</key>
             <string>([^\s])</string>
             <key>name</key>
             <string>invalid.vocola2</string>
@@ -324,13 +318,13 @@
           </dict>
         </array>
       </dict>
-      <key>numeric</key>
+      <key>number_sequence</key>
       <dict>
         <key>patterns</key>
         <array>
           <dict>
             <key>match</key>
-            <string>(\b\d+)</string>
+            <string>(\d+)(\.\.)(\d+)</string>
             <key>name</key>
             <string>constant.numeric.vocola2</string>
           </dict>
