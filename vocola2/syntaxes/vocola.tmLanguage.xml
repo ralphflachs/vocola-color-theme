@@ -488,6 +488,12 @@
               </dict>
             </dict>
           </dict>
+          <dict>
+            <key>match</key>
+            <string>(\:\=)</string>
+            <key>name</key>
+            <string>punctuation.vocola2</string>
+          </dict>
         </array>
       </dict>
       <key>variables__1</key>
