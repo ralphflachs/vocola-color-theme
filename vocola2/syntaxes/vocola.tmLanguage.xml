@@ -458,11 +458,11 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>punctuation.vocola2</string>
+                <string>string.quoted.double.vocola2</string>
               </dict>
             </dict>
             <key>contentName</key>
-            <string>text.vocola2</string>
+            <string>string.quoted.double.vocola2</string>
             <key>end</key>
             <string>(\&quot;)</string>
             <key>endCaptures</key>
@@ -470,7 +470,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>punctuation.vocola2</string>
+                <string>string.quoted.double.vocola2</string>
               </dict>
             </dict>
           </dict>
@@ -542,7 +542,7 @@
             <key>match</key>
             <string>(.)</string>
             <key>name</key>
-            <string>variable.vocola2</string>
+            <string>variable.other.vocola2</string>
           </dict>
         </array>
       </dict>
