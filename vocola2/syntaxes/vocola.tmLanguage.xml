@@ -64,6 +64,10 @@
             <string>#comments</string>
           </dict>
           <dict>
+            <key>include</key>
+            <string>#function_calls</string>
+          </dict>
+          <dict>
             <key>match</key>
             <string>(;)</string>
             <key>name</key>
@@ -189,6 +193,53 @@
       <dict>
         <key>patterns</key>
         <array></array>
+      </dict>
+      <key>function_calls</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>([\w\.]+\()</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+            </dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#function_calls__1</string>
+              </dict>
+            </array>
+            <key>end</key>
+            <string>(\))</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.vocola2</string>
+              </dict>
+            </dict>
+          </dict>
+        </array>
+      </dict>
+      <key>function_calls__1</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>match</key>
+            <string>(.)</string>
+            <key>name</key>
+            <string>text.vocola2</string>
+          </dict>
+        </array>
       </dict>
       <key>include_file</key>
       <dict>
