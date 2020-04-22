@@ -57,6 +57,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#reference</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#comments</string>
           </dict>
           <dict>
@@ -284,6 +288,10 @@
             <key>name</key>
             <string>keyword.vocola2</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#reference</string>
+          </dict>
         </array>
       </dict>
       <key>number_sequence</key>
@@ -383,6 +391,18 @@
       <dict>
         <key>patterns</key>
         <array></array>
+      </dict>
+      <key>reference</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>match</key>
+            <string>(\$)(\d)</string>
+            <key>name</key>
+            <string>constant.numeric.vocola2</string>
+          </dict>
+        </array>
       </dict>
       <key>variables</key>
       <dict>
