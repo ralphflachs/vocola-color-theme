@@ -73,7 +73,7 @@
           </dict>
           <dict>
             <key>match</key>
-            <string>(;)</string>
+            <string>([\x{003b}\x{003d}])</string>
             <key>name</key>
             <string>punctuation.vocola2</string>
           </dict>
@@ -93,7 +93,7 @@
             <key>match</key>
             <string>(\w+)</string>
             <key>name</key>
-            <string>constant.character.vocola2</string>
+            <string>storage.type.java.vocola2</string>
           </dict>
           <dict>
             <key>match</key>
@@ -108,7 +108,7 @@
               <key>2</key>
               <dict>
                 <key>name</key>
-                <string>constant.character.vocola2</string>
+                <string>storage.type.java.vocola2</string>
               </dict>
             </dict>
           </dict>
@@ -188,7 +188,7 @@
             <key>match</key>
             <string>(\w+)</string>
             <key>name</key>
-            <string>constant.character.vocola2</string>
+            <string>storage.type.java.vocola2</string>
           </dict>
         </array>
       </dict>
@@ -286,7 +286,7 @@
               <key>1</key>
               <dict>
                 <key>name</key>
-                <string>keyword.vocola2</string>
+                <string>keyword.other.vocola2</string>
               </dict>
             </dict>
             <key>patterns</key>
@@ -370,7 +370,7 @@
             <key>match</key>
             <string>(\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break|PgDn|PgUp))</string>
             <key>name</key>
-            <string>keyword.vocola2</string>
+            <string>constant.language.vocola2</string>
           </dict>
           <dict>
             <key>include</key>
