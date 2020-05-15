@@ -1,0 +1,370 @@
+#################################################################
+## Iro
+################################################################ 
+##
+## * Press Ctrl + '+'/'-' To Zoom in
+## * Press Ctrl + S to save and recalculate... 
+## * Documents are saved to web storage.
+## * Only one save slot supported.
+## * Matches cannot span lines.
+## * Unicode chars must be defined in \u0000 to \uffff format.
+## * All matches must be contained by a single group ( ... )
+## * Look behinds not permitted, (?<= or (?<!
+## * Look forwards are permitted (?= or (?!
+## * Constants are defined as __my_const = (......)
+## * The \= format allows unescaped regular expressions
+## * Constants referenced by match \= $${__my_const}
+## * Constants can reference other constants
+## * You are free to delete all the default scopes.
+## * Twitter : ainslec , Web: http://eeyo.io/iro
+##
+################################################################
+
+name                   = vocola2
+file_extensions []     = vch, vcl;
+
+################################################################
+## Constants
+################################################################
+
+__MY_CONSTANT \= (\b(Ctrl|Alt|Space|Up|Down|Right|Left|Backspace|Del|Esc|Home|Shift|Enter|Tab|End|Break|PgDn|PgUp))
+
+################################################################
+## Styles
+################################################################
+
+styles [] {
+
+.comment : style {
+   color                 = light_green
+   italic                = true
+   ace_scope             = comment
+   textmate_scope        = comment
+   pygments_scope        = Comment
+}
+
+.constant : style {
+   color     = cyan
+   ace_scope             = constant
+   textmate_scope        = constant.language
+   pygments_scope        = Keyword
+}
+
+.keyword : style {
+   color     = cyan
+   ace_scope             = keyword
+   textmate_scope        = keyword.other
+   pygments_scope        = Keyword
+}
+
+.numeric : style {
+   color                 = gold
+   ace_scope             = constant.numeric
+   textmate_scope        = constant.numeric
+   pygments_scope        = Number
+}
+
+.punctuation : style {
+   color     = red_2
+   ace_scope             = punctuation
+   textmate_scope        = punctuation
+   pygments_scope        = Punctuation
+}
+
+.optional : style {
+   color                 = brown
+   ace_scope             = text
+   textmate_scope        = keyword.control
+   pygments_scope        = String
+}
+
+
+.text : style {
+   color                 = brown
+   ace_scope             = text
+   textmate_scope        = text
+   pygments_scope        = String
+}
+
+.variable : style {
+   color                 = pink
+   ace_scope             = text
+   textmate_scope        = variable.other
+   pygments_scope        = String
+}
+
+.alternative : style {
+   color                 = orange
+   ace_scope             = text
+   textmate_scope        = constant.numeric
+   pygments_scope        = String
+}
+
+
+
+.function : style {
+   color                 = blue
+   ace_scope             = text
+   textmate_scope        = entity.name.function
+   pygments_scope        = String
+}
+
+.quote : style {
+   color                 = brown
+   ace_scope             = text
+   textmate_scope        = string.quoted.double
+   pygments_scope        = String
+}
+
+
+.command : style {
+   color                 = yellow
+   ace_scope             = text
+   textmate_scope        = storage.type.java
+   pygments_scope        = String
+}
+
+.illegal : style {
+   color                 = white
+   background_color      = red
+   ace_scope             = invalid
+   textmate_scope        = invalid
+   pygments_scope        = Generic.Error
+}
+
+}
+
+#################################################
+## Parse contexts
+#################################################
+
+contexts [] {
+
+##############################################
+## Main Context - Entry point context
+##############################################
+
+main : context {
+
+   : include "include_file" ; 
+   : include "alternative_words" ; 
+   : include "keystroke_sequence" ;
+   : include "optional_words" ;
+   : include "number_sequence" ;
+   : include "quotes" ;
+   : include "variables" ;
+   : include "reference" ;
+   : include "comments" ;
+   : include "function_calls" ;
+   : include "commands" ;
+
+      
+   : pattern {
+      regex          \= ([;=])
+      styles []       = .punctuation;
+   }
+   
+   : pattern {
+      regex          \= ([^\s])
+      styles []       = .illegal;
+   }
+   
+}
+
+#################################################
+## End of Contexts
+#################################################
+
+###########################################
+## Vocola Context
+###########################################
+
+include_file : context {
+   : inline_push {
+      regex          \= (include)
+      styles []       = .keyword;
+      : pop {  
+         regex       \= (;)
+         styles []    = .punctuation;
+      }
+      : pattern {
+         regex       \= (.)
+         styles []    = .text;
+      }
+   }
+}
+
+comments : context {
+   : inline_push {
+      regex          \= (\#)
+      styles []       = .comment;
+      default_style   = .comment
+      : eol_pop {}
+   }
+}
+
+reference : context {
+   : pattern {
+      regex          \= (\$)(\d)
+      styles []       = .numeric;
+   }
+}
+
+
+variables : context {
+   : inline_push {
+      regex          \= (\<)
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (\>)
+         styles []    = .punctuation;
+      }
+      : pattern {
+         regex       \= (.)
+         styles []    = .variable;
+      }
+   }
+   : pattern {
+      regex      \= (\:\=)
+      styles []   = .punctuation;
+   }
+}
+
+function_calls : context {
+   : inline_push {
+      regex          \= ([\w\.]+\()
+      styles []       = .function;
+      : pop {
+         regex       \= (\))
+         styles []    = .punctuation;
+      }
+      : pattern {
+         regex       \= (.)
+         styles []    = .text;
+      }
+   }
+}
+
+alternative_words : context {
+   : inline_push {
+      regex          \= (\()
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (\))
+         styles []    = .punctuation;
+      }
+      : include "quotes" ;
+      : include "alternative_equation" ;
+   }
+}
+
+optional_words : context {
+   : inline_push {
+      regex          \= (\[)
+      styles []       = .punctuation;
+      : pop {
+         regex       \= (\])
+         styles []    = .punctuation;
+      }
+      : pattern {
+         regex       \= ([^[])
+         styles []    = .optional;
+      }
+      
+      : include "optional_words" ;
+      
+   }   
+}
+
+number_sequence : context {
+   : pattern {
+      regex          \= (\d+)(\.\.)(\d+)
+      styles []       = .numeric;
+   } 
+}
+
+alternative_equation : context {
+   : pattern {
+      regex          \= (\w+)
+      styles []   = .alternative;
+   }
+   : pattern {
+      regex          \= (\|)([\s\w]*)
+      styles []   = .punctuation, .alternative;
+      # styles []       = .numeric;
+   }
+   : pattern {
+      regex          \= (=\s+)(\w*)
+      styles []   = .punctuation, .quote;
+      # styles []       = .numeric;
+   }
+}
+
+
+keystroke_sequence : context {
+   : inline_push {
+      regex          \= (\{)
+      styles []       = .punctuation;
+      : pop {  
+         regex       \= (\})
+         styles []    = .punctuation;
+      }
+      : pattern {
+      regex          \= (/+)
+      styles []       = .numeric;
+      }
+      : pattern {
+         regex          \= $${__MY_CONSTANT}
+         styles []       = .constant;
+      }
+      : pattern {
+         regex          \= (\w)
+         styles []       = .quote;
+      }
+      : include "reference" ;
+      
+   }
+}
+
+commands : context {
+   : pattern {
+         regex          \= (\w+)
+         styles []       = .command;
+   }
+}
+
+keystroke_no_bracket : context {
+   : pattern {
+         regex          \= (\)\s*)(\w+)
+         styles []       = .command;
+   }
+}
+
+
+
+
+###########################################
+## Generic Context
+###########################################
+
+quotes : context {
+   : inline_push {
+      regex          \= (\")
+      styles []       = .quote;
+      default_style   = .quote
+      : pop {
+         regex       \= (\")
+         styles []    = .quote;
+      }
+   }
+}
+
+
+numeric : context {
+   : pattern {
+      regex          \= (\b\d+)
+      styles []       = .numeric;
+   }
+}
+
+}
