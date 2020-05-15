@@ -5,14 +5,12 @@ VS Code color theme for Vocala 2
 Vocola is a voice command language for creating commands to control a computer by voice. There are two versions of Vocola, Vocola 2 works with Dragon Naturallyspeaking and Vocola 3 works with WSR. This color theme is designed for Vocola 2.
 
 ## Prerequisites for building theme ## 
-* Windows 7+
+* Windows 10
 * Visual Studio Code
-* Dragon Naturallyspeaking 13 Home
-* [Vocola 2](http://vocola.net/v2/default.asp)
-* NPM
+* Node.js
 
 ## Build color theme ##
-Build the theme with npm.
+Build the theme with Node.js
 
 ```console
 $ npm build
