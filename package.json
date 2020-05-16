@@ -1,25 +1,45 @@
 {
+    "publisher": "Ralph-Flachsbart",
+    "author": {
+        "name": "Ralph Flachsbart"
+    },
     "name": "vocola2",
-    "displayName": "vocola2",
-    "description": "Syntax highlighting for vocola2",
+    "displayName": "Vocola 2",
+    "description": "Syntax highlighting for Vocola 2",
     "version": "0.0.1",
     "engines": {
-        "vscode": "^1.44.0"
+        "vscode": "^1.31.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "license": "SEE LICENSE IN LICENSE",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ralphflachs/vocola-color-theme.git"
+    },
+    "icon": "images/icon.png",
     "contributes": {
-        "languages": [{
-            "id": "vocola2",
-            "aliases": ["vocola2", "vocola2"],
-            "extensions": [".vch",".vcl"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "vocola2",
-            "scopeName": "source.vocola2",
-            "path": "./syntaxes/vocola.tmLanguage.xml"
-        }]
+        "languages": [
+            {
+                "id": "vocola2",
+                "aliases": [
+                    "vocola2",
+                    "vocola2"
+                ],
+                "extensions": [
+                    ".vch",
+                    ".vcl"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "vocola2",
+                "scopeName": "source.vocola2",
+                "path": "./syntaxes/vocola.tmLanguage.xml"
+            }
+        ]
     }
 }
